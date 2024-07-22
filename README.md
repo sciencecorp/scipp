@@ -4,15 +4,15 @@
 
 To use this library in your project, vcpkg is recommended.
 
-Add this package to your project's `vcpkg.json`
+Add this package (`science-scipp`) to your project's dependencies in `vcpkg.json`
 
 Then, in your `CMakeLists.txt`:
 
 ```cmake
-find_package(science_scipp REQUIRED)
+find_package(science-scipp REQUIRED CONFIG)
 
 target_link_libraries(
-  your_target
+  <target>
   PRIVATE
   science::scipp
 )
