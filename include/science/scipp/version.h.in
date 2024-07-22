@@ -1,0 +1,9 @@
+#pragma once
+
+#include <string>
+
+namespace science {
+
+const std::string SCIPP_VERSION = "@CMAKE_PROJECT_VERSION@";
+
+}
