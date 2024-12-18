@@ -10,7 +10,7 @@ auto Threaded::start() -> Status {
     return status;
   }
 
-  thread_ = std::make_unique<std::thread>(&Threaded::on_thread, this);
+  thread_.emplace(&Threaded::on_thread, this);
 
   return {};
 }
@@ -20,7 +20,7 @@ auto Threaded::stop() -> Status {
 
   auto status = on_stop();
 
-  if (thread_ != nullptr && thread_->joinable()) {
+  if (thread_.has_value() && thread_->joinable()) {
     thread_->join();
   }
 

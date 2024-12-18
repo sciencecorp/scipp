@@ -20,7 +20,7 @@ class Threaded {
 
  protected:
   std::atomic<bool> running_{false};
-  std::unique_ptr<std::thread> thread_{};
+  std::optional<std::thread> thread_{};
 
   virtual auto on_thread() -> void = 0;
   [[nodiscard]] virtual auto on_start() -> Status { return {}; }
